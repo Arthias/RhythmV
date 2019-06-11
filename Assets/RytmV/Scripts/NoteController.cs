@@ -48,9 +48,20 @@ public class NoteController : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter(Collision collision){
+        if(collision.gameObject.name == targetObject.name){
+            ScoreController.instance.NoteMiss();
+            Destroy(this.gameObject)
+        }
+
+    }
+
+
     public void DestroyNote()
     {
-        Destroy(gameObject);
+        ScoreController.instance.NoteHit();
+        Destroy(this.gameObject);
+        
     }
 
     void startMoving()

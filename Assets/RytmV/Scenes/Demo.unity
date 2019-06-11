@@ -414,7 +414,7 @@ PrefabInstance:
         type: 3}
       propertyPath: noteSpawnerPrefab
       value: 
-      objectReference: {fileID: 6304878681291966819, guid: 8c9ca76f56324f4439f5c7a6aa60c7c4,
+      objectReference: {fileID: 6762089209581734894, guid: fed962c4432234b4480ae695f01016ce,
         type: 3}
     - target: {fileID: 2262835847541958471, guid: 12e409af73e27bd42b5f0e728eb7c43b,
         type: 3}
