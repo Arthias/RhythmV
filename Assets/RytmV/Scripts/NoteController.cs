@@ -31,11 +31,6 @@ public class NoteController : MonoBehaviour
         targetPosition = targetObject.transform.position;
         distance = Vector3.Distance(startPosition, targetPosition);
         startMoving();
-
-        //moveSpeed= distance/timeToArrive;
-
-
-
     }
 
     // Update is called once per frame
@@ -48,20 +43,18 @@ public class NoteController : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision){
-        if(collision.gameObject.name == targetObject.name){
-            ScoreController.instance.NoteMiss();
-            Destroy(this.gameObject)
-        }
-
+    void OnTriggerEnter(Collider other)
+    {
+        
+        ScoreController.scoreControllerInstance.NoteMiss();
+        
     }
 
 
     public void DestroyNote()
     {
-        ScoreController.instance.NoteHit();
+        ScoreController.scoreControllerInstance.NoteHit();
         Destroy(this.gameObject);
-        
     }
 
     void startMoving()

@@ -6,9 +6,10 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
+    public static AudioController aControllerInstance;
     
     [SerializeField]
-    public AudioSource audioFile = null;
+    public AudioSource audioFile;
 
     public float[] samplesLeft, samplesRight = new float[512];
 
@@ -80,15 +81,16 @@ public class AudioController : MonoBehaviour
 //
     void Start()
     {
-        //pause=true;
+        aControllerInstance = this;
+        audioFile=GetComponent<AudioSource>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        //GetSpectrumAudio();
-        //CreateFreqBands();
+        GetSpectrumAudio();
+        CreateFreqBands();
     }
 
 
