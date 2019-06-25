@@ -43,11 +43,12 @@ public class NoteController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {
-        
+        if(other.collider.tag == "Target"){
         ScoreController.scoreControllerInstance.NoteMiss();
-        
+        Destroy(this.gameObject);
+        }
     }
 
 

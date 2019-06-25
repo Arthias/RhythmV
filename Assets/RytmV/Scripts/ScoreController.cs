@@ -38,9 +38,6 @@ public class ScoreController : MonoBehaviour
         hitCounter = 0;
         multiplier = 1;
         multiplierText.text = "M: x" + multiplier;
-
-
-
     }
 
     public void NoteHit()

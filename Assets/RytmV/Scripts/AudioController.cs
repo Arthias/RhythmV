@@ -91,6 +91,9 @@ public class AudioController : MonoBehaviour
     {
         GetSpectrumAudio();
         CreateFreqBands();
+        if (audioFile.isPlaying && !pause){
+            
+        }
     }
 
 
