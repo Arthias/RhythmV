@@ -10,6 +10,7 @@ public class MenuController : MonoBehaviour
     public GameObject menuButton;
     public GameObject mainMenu;
     public GameObject scoreMenu;
+    public GameObject levelSelect;
     public TextMeshProUGUI currentScore;
     public TextMeshProUGUI currentTop;
     public TextMeshProUGUI highScoreMenuText;
@@ -21,6 +22,7 @@ public class MenuController : MonoBehaviour
         menuButton.SetActive(true);
         mainMenu.SetActive(false);
         scoreMenu.SetActive(false);
+        levelSelect.SetActive(false);
     }
 
     // Update is called once per frame
@@ -39,6 +41,7 @@ public class MenuController : MonoBehaviour
         highScoreMenuText.text = ScoreMenuBuilder();
         menuButton.SetActive(false);
         mainMenu.SetActive(false);
+        levelSelect.SetActive(false);
         scoreMenu.SetActive(true);
     }
 
@@ -56,6 +59,7 @@ public class MenuController : MonoBehaviour
     {
         menuButton.SetActive(true);
         mainMenu.SetActive(false);
+        levelSelect.SetActive(false);
         Time.timeScale = 1;
         AudioController.aControllerInstance.PlayMusic();
 
@@ -72,7 +76,12 @@ public class MenuController : MonoBehaviour
     }
     public void LvLSelectButton()
     {
-  
+        
+        menuButton.SetActive(false);
+        mainMenu.SetActive(false);
+        levelSelect.SetActive(true);
+        scoreMenu.SetActive(false);
+
     }
 
     public string TopScoreBuilder()
@@ -95,6 +104,11 @@ public class MenuController : MonoBehaviour
         st += "Your Score: " + score + "\n" +
         "<align=\"left\">Current " + TopScoreBuilder();
         return st;
+    }
+
+    public void SelectLevel(string level){
+        Time.timeScale = 1;
+        LevelChanger.levelChangerInstance.FadeToLevel(level);
     }
 
 

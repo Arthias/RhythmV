@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class ScoreController : MonoBehaviour
 {
@@ -20,8 +21,8 @@ public class ScoreController : MonoBehaviour
     public int hScore4;
     public int hScore5;
 
-    public Text scoreText;
-    public Text multiplierText;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI multiplierText;
 
 
     // Start is called before the first frame update
@@ -100,6 +101,11 @@ public class ScoreController : MonoBehaviour
 
     public int CalculateHighScore()
     {
+        int a = hScore1;
+        int b = hScore2;
+        int c = hScore3;
+        int d = hScore4;
+        int e = hScore5;
         int i = 0;
         if (currentScore > hScore5)
         {
@@ -111,26 +117,26 @@ public class ScoreController : MonoBehaviour
                     {
                         if (currentScore > hScore1)
                         {
-                            hScore5 = hScore4;
-                            hScore4 = hScore3;
-                            hScore3 = hScore2;
-                            hScore2 = hScore1;
+                            hScore5 = d;
+                            hScore4 = c;
+                            hScore3 = b;
+                            hScore2 = a;
                             hScore1 = currentScore;
                             i = 1;
                         }
                         else
                         {
-                            hScore5 = hScore4;
-                            hScore4 = hScore3;
-                            hScore3 = hScore2;
+                            hScore5 = d;
+                            hScore4 = c;
+                            hScore3 = b;
                             hScore2 = currentScore;
                             i = 2;
                         }
                     }
                     else
                     {
-                        hScore5 = hScore4;
-                        hScore4 = hScore3;
+                        hScore5 = d;
+                        hScore4 = c;
                         hScore3 = currentScore;
                         i = 3;
                     }

@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/RytmV/Scenes/Main_Menu.unity
     guid: a020ba520dac23745ad5f49e0a552882
   - enabled: 1
-    path: Assets/RytmV/Scenes/Demo.unity
+    path: Assets/RytmV/Scenes/Level1.unity
     guid: 85d454d1beabc6b4cb3e417a45db81b7
+  - enabled: 1
+    path: Assets/RytmV/Scenes/Level2.unity
+    guid: 3aefd1c09153208438625eb389852b89
   m_configObjects: {}

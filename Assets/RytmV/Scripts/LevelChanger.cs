@@ -6,7 +6,8 @@ public class LevelChanger : MonoBehaviour
 {
     public static LevelChanger levelChangerInstance;
     public Animator animator;
-    private int levelToLoad;
+    private int levelToLoad = -1;
+    private string levelName;
 
 
     void Start()
@@ -24,6 +25,11 @@ public class LevelChanger : MonoBehaviour
         levelToLoad=levelIndex;
         animator.SetTrigger("FadeOut");
     }
+        public void FadeToLevel(string lvlName)
+    {
+        levelName=lvlName;
+        animator.SetTrigger("FadeOut");
+    }
 
     public void FadeToNextLevel(){
         FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
@@ -35,6 +41,11 @@ public class LevelChanger : MonoBehaviour
 
     public void OnFadeComplete()
     {
-        SceneManager.LoadScene(levelToLoad);
+        if(levelToLoad > -1){
+            SceneManager.LoadScene(levelToLoad);
+        }else {
+            SceneManager.LoadScene(levelName);
+        }
+        
     }
 }
