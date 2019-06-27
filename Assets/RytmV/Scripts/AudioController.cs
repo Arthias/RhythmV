@@ -75,8 +75,22 @@ public class AudioController : MonoBehaviour
         }
     }
 
+    public bool IsPaused(){
+        return pause;
+    }
 
+    public bool MusicEnded()
+    {
+        if (!this.audioFile.isPlaying && !pause)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
 
+    }
 
 //
     void Start()
@@ -91,9 +105,6 @@ public class AudioController : MonoBehaviour
     {
         GetSpectrumAudio();
         CreateFreqBands();
-        if (audioFile.isPlaying && !pause){
-            
-        }
     }
 
 

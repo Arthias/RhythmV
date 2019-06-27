@@ -54,8 +54,12 @@ public class NoteController : MonoBehaviour
 
     public void DestroyNote()
     {
-        ScoreController.scoreControllerInstance.NoteHit();
-        Destroy(this.gameObject);
+        if (!AudioController.aControllerInstance.IsPaused())
+        {
+            ScoreController.scoreControllerInstance.NoteHit();
+            Destroy(this.gameObject);
+        }
+
     }
 
     void startMoving()

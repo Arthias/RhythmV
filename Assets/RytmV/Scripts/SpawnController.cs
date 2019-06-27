@@ -60,16 +60,15 @@ public class SpawnController : MonoBehaviour
 
         BeatScale();
 
-
-
     }
-    public void BeatScale(){
-        int instCounter= 0;
+    public void BeatScale()
+    {
+        int instCounter = 0;
         foreach (GameObject i in noteSpawner)
         {
-            
+
             freqBand = instCounter;
-            i.transform.localScale = new Vector3(i.transform.localScale.x, (AudioController.freqBands[1]*scaleMult)+ startScale, i.transform.localScale.z);
+            i.transform.localScale = new Vector3(i.transform.localScale.x, (AudioController.freqBands[1] * scaleMult) + startScale, i.transform.localScale.z);
             freqBand++;
         }
     }
@@ -91,7 +90,7 @@ public class SpawnController : MonoBehaviour
             noteSpawnerInstance.name = "NoteSpawner" + (i + 1);
             noteSpawnerInstance.transform.RotateAround(gameObject.transform.position, Vector3.forward, -45 * i);
             noteSpawner[i] = noteSpawnerInstance;
-            
+
         }
     }
 
