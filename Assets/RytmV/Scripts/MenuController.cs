@@ -14,11 +14,13 @@ public class MenuController : MonoBehaviour
     public TextMeshProUGUI currentScore;
     public TextMeshProUGUI currentTop;
     public TextMeshProUGUI highScoreMenuText;
+    bool scorescreenActive;
     int score = 0;
     int highscore = 0;
     // Start is called before the first frame update
     void Start()
     {
+        scorescreenActive=false;
         menuButton.SetActive(true);
         mainMenu.SetActive(false);
         scoreMenu.SetActive(false);
@@ -29,7 +31,7 @@ public class MenuController : MonoBehaviour
     void Update()
     {
         score = ScoreController.scoreControllerInstance.CurrentTotalScore();
-        if (AudioController.aControllerInstance.MusicEnded())
+        if (AudioController.aControllerInstance.MusicEnded() && !scorescreenActive)
         {
             ShowScoreScreen();
         }
@@ -37,6 +39,7 @@ public class MenuController : MonoBehaviour
 
     public void ShowScoreScreen()
     {
+        scorescreenActive = true;
         highscore = ScoreController.scoreControllerInstance.CalculateHighScore();
         highScoreMenuText.text = ScoreMenuBuilder();
         menuButton.SetActive(false);

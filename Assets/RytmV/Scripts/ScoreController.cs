@@ -143,7 +143,7 @@ public class ScoreController : MonoBehaviour
                 }
                 else
                 {
-                    hScore5 = hScore4;
+                    hScore5 = d;
                     hScore4 = currentScore;
                     i = 4;
                 }
