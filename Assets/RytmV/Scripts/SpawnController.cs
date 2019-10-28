@@ -69,7 +69,7 @@ public class SpawnController : MonoBehaviour
 
             freqBand = instCounter;
             i.transform.localScale = new Vector3(i.transform.localScale.x, (AudioController.freqBands[1] * scaleMult) + startScale, i.transform.localScale.z);
-            freqBand++;
+            instCounter++;
         }
     }
 

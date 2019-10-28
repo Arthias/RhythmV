@@ -94,9 +94,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a95efe5782e1842b3378ed2e726f12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToArrive: 2
+  noteMaterial: {fileID: 2100000, guid: aacedd0dd75cf334ab9df1b09acd0e4d, type: 2}
+  timeToArrive: 5
   moveSpeed: 0
   targetObject: {fileID: 0}
+  colorBand: 1
+  frenselValue1: 3
+  frenselValue2: 3
 --- !u!135 &6304878681291966816
 SphereCollider:
   m_ObjectHideFlags: 0
