@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2262835847541958470}
   - component: {fileID: 2262835847541958468}
   - component: {fileID: 2262835847541958469}
+  - component: {fileID: 41617959269304683}
   - component: {fileID: 2262835847541958471}
   - component: {fileID: 1126496581}
   m_Layer: 0
@@ -144,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioFile: {fileID: 2262835847541958468}
+  baseBandPower: 10
   samplesLeft:
   - 0
   - 0
@@ -1170,8 +1172,23 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  baseBandPower: 10
   pause: 0
+--- !u!114 &41617959269304683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2262835847541958464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8da0682c3112a2458850a1001b2d3e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Amplitude: 0
+  AmplitudeBuffer: 0
+  _audioProfile: 0
+  channel: 0
 --- !u!114 &2262835847541958471
 MonoBehaviour:
   m_ObjectHideFlags: 0

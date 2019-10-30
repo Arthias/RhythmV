@@ -84,9 +84,9 @@ public class NoteController : MonoBehaviour
 
     void ColorChange()
     {
-        if (AudioController.freqBands.Length+1 > colorBand)
+        if (AudioController._audioBandBuffer.Length >= colorBand)
         {
-            Vector3 colorVector = new Vector3(AudioController.freqBands[colorBand],frenselValue1,frenselValue2);
+            Vector3 colorVector = new Vector3(AudioController._audioBandBuffer[colorBand],frenselValue1,frenselValue2);
             noteMaterial.SetVector("_Color",colorVector);
         }
     }

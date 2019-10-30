@@ -4,22 +4,19 @@ using UnityEngine;
 
 public class SpawnController : MonoBehaviour
 {
-    [SerializeField]
-    public GameObject noteSpawnerPrefab;
+    [SerializeField] public GameObject noteSpawnerPrefab;
     GameObject[] noteSpawner = new GameObject[8];
 
-    [SerializeField]
-    public GameObject notePrefab;
+    [SerializeField] public GameObject notePrefab;
     public GameObject noteTarget;
-    public int freqBand;
+    public int scaleBand = 1;
     public float startScale, scaleMult;
 
     //Beats per minute for track
-    [SerializeField]
-    public float beatsPM = 1f;
+    [SerializeField] public float beatsPM = 1f;
 
-    [SerializeField]
-    public float spawnerDistance = 20f;
+    [SerializeField] public float spawnerDistance = 20f;
+
     //Frequency of note spawn in fraction of seconds
     float bFrequency = 1f;
 
@@ -30,7 +27,6 @@ public class SpawnController : MonoBehaviour
 
     List<int> partitureList = new List<int>();
     //int[] partitureArray = new int[0];
-
 
 
     int posCounter = 0;
@@ -51,25 +47,24 @@ public class SpawnController : MonoBehaviour
         partitureListBuilder();
         setWaitTime();
         InvokeRepeating("SpawnNote", waitTime, bFrequency);
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        BeatScale();
-
+        if (scaleBand >= AudioController._audioBandBuffer.Length)
+        {
+            BeatScale();
+        }
     }
+
     public void BeatScale()
     {
-        int instCounter = 0;
         foreach (GameObject i in noteSpawner)
         {
-
-            freqBand = instCounter;
-            i.transform.localScale = new Vector3(i.transform.localScale.x, (AudioController.freqBands[1] * scaleMult) + startScale, i.transform.localScale.z);
-            instCounter++;
+            i.transform.localScale = new Vector3(i.transform.localScale.x,
+                (AudioController._audioBandBuffer[scaleBand] * scaleMult) + startScale,
+                i.transform.localScale.z);
         }
     }
 
@@ -83,21 +78,19 @@ public class SpawnController : MonoBehaviour
     {
         for (int i = 0; i < 8; i++)
         {
-            GameObject noteSpawnerInstance = (GameObject)Instantiate(noteSpawnerPrefab);
+            GameObject noteSpawnerInstance = (GameObject) Instantiate(noteSpawnerPrefab);
             noteSpawnerInstance.transform.position = noteTarget.transform.position;
             noteSpawnerInstance.transform.parent = this.transform;
             noteSpawnerInstance.transform.position = Vector3.up * spawnerDistance;
             noteSpawnerInstance.name = "NoteSpawner" + (i + 1);
             noteSpawnerInstance.transform.RotateAround(gameObject.transform.position, Vector3.forward, -45 * i);
             noteSpawner[i] = noteSpawnerInstance;
-
         }
     }
 
 
     public void partitureListBuilder()
     {
-
         string[] stringArray = partitureString.Split(',');
 
         for (int e = 0; e < stringArray.Length; e++)
@@ -111,26 +104,17 @@ public class SpawnController : MonoBehaviour
     {
         Debug.Log("bFrequency: " + bFrequency);
 
-
         if (posCounter < partitureList.Count)
         {
-
             int i = partitureList[posCounter] - 1;
             if (i >= 0)
             {
-                GameObject noteInstance = (GameObject)Instantiate(notePrefab);
+                GameObject noteInstance = (GameObject) Instantiate(notePrefab);
                 noteInstance.GetComponent<NoteController>().targetObject = noteTarget;
                 noteInstance.transform.position = noteSpawner[i].transform.position;
             }
+
             posCounter++;
         }
-        else
-        {
-            return;
-        }
-
     }
-
-
-
 }

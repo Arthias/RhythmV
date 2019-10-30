@@ -24,4 +24,4 @@ Material:
     - Vector1_68100C65: 5
     m_Colors:
     - Vector3_6896476D: {r: 3, g: 3, b: 3, a: 0}
-    - _Color: {r: 0, g: 3, b: 3, a: 0}
+    - _Color: {r: 1.8929148, g: 3, b: 3, a: 0}
