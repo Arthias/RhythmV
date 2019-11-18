@@ -63,7 +63,7 @@ public class SpawnController : MonoBehaviour
         foreach (GameObject i in noteSpawner)
         {
             i.transform.localScale = new Vector3(i.transform.localScale.x,
-                (AudioController._audioBandBuffer[scaleBand] * scaleMult) + startScale,
+                (AudioController._audioBand[scaleBand] * scaleMult) + startScale,
                 i.transform.localScale.z);
         }
     }
@@ -102,8 +102,6 @@ public class SpawnController : MonoBehaviour
 
     void SpawnNote()
     {
-        Debug.Log("bFrequency: " + bFrequency);
-
         if (posCounter < partitureList.Count)
         {
             int i = partitureList[posCounter] - 1;

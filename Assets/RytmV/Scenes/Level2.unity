@@ -94,8 +94,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -450,6 +450,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5890039454958772505, guid: 12e409af73e27bd42b5f0e728eb7c43b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2262835847541958464, guid: 12e409af73e27bd42b5f0e728eb7c43b,
         type: 3}
       propertyPath: m_Name
@@ -485,6 +490,16 @@ PrefabInstance:
       propertyPath: partitureString
       value: 0,1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8
       objectReference: {fileID: 0}
+    - target: {fileID: 2262835847541958471, guid: 12e409af73e27bd42b5f0e728eb7c43b,
+        type: 3}
+      propertyPath: scaleBand
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262835847541958471, guid: 12e409af73e27bd42b5f0e728eb7c43b,
+        type: 3}
+      propertyPath: startScale
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1126496581, guid: 12e409af73e27bd42b5f0e728eb7c43b, type: 3}
       propertyPath: scoreText
       value: 
@@ -493,7 +508,18 @@ PrefabInstance:
       propertyPath: multiplierText
       value: 
       objectReference: {fileID: 1557480289031520383}
-    m_RemovedComponents: []
+    - target: {fileID: 2262835847541958469, guid: 12e409af73e27bd42b5f0e728eb7c43b,
+        type: 3}
+      propertyPath: baseBandPower
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262835846697301012, guid: 12e409af73e27bd42b5f0e728eb7c43b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 66641530353a5574383b6122c0da455d, type: 2}
+    m_RemovedComponents:
+    - {fileID: 41617959269304683, guid: 12e409af73e27bd42b5f0e728eb7c43b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 12e409af73e27bd42b5f0e728eb7c43b, type: 3}
 --- !u!1001 &3219311819186382324
 PrefabInstance:
@@ -656,5 +682,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6806638069716066286, guid: 6cc189af6c87483489384f8d415fe2a1,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 66641530353a5574383b6122c0da455d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cc189af6c87483489384f8d415fe2a1, type: 3}

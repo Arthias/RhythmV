@@ -29,7 +29,7 @@ public class NoteController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startPosition = this.transform.position;
+        startPosition = transform.position;
         targetPosition = targetObject.transform.position;
         distance = Vector3.Distance(startPosition, targetPosition);
         StartMoving();

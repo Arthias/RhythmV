@@ -300,6 +300,7 @@
             <e p="NoteController.cs" t="Include" />
             <e p="ScoreController.cs" t="Include" />
             <e p="SpawnController.cs" t="Include" />
+            <e p="VFXVisualizer.cs" t="Include" />
           </e>
         </e>
       </e>

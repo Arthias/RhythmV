@@ -7,11 +7,31 @@ public class AudioController : MonoBehaviour
 {
     public static AudioController aControllerInstance;
     [SerializeField] public AudioSource audioSourceFile;
-    [SerializeField] public int baseBandPower = 10;
-    public bool pause;
+    [SerializeField] public int baseBandPower = 100;
+    bool pause;
+    static float[] _samplesLeft = new float[512];
+    static float[] _samplesRight = new float[512];
+    
+    public float[] _freqBand = new float[8];
 
-    public static float[] _samplesLeft = new float[512];
-    public static float[] _samplesRight = new float[512];
+    float[] _bandBuffer = new float[8];
+    float[] _bufferDecrease = new float[8];
+
+    float[] _freqBandHighest = new float[8];
+    public static float[] _audioBand = new float[8];
+    public static float[] _audioBandBuffer = new float[8];
+
+    public float Amplitude, AmplitudeBuffer;
+
+    float _AmplitudeHighest;
+    public float _audioProfile;
+
+    public enum _channel
+    {
+        Stereo,
+        Left,
+        Right
+    };
 
     /*Frequency bands for
      * Sub Bass: 20 to 60 Hz
@@ -38,28 +58,6 @@ public class AudioController : MonoBehaviour
        This comes from Peer Play on YouTube @
        "Audio Visualization - Unity/C# Tutorial"
      */
-
-
-    public static float[] _freqBand = new float[8];
-
-    float[] _bandBuffer = new float[8];
-    float[] _bufferDecrease = new float[8];
-
-    float[] _freqBandHighest = new float[8];
-    public static float[] _audioBand = new float[8];
-    public static float[] _audioBandBuffer = new float[8];
-
-    public float Amplitude, AmplitudeBuffer;
-
-    float _AmplitudeHighest;
-    public float _audioProfile;
-
-    public enum _channel
-    {
-        Stereo,
-        Left,
-        Right
-    };
 
     public _channel channel = new _channel();
 
