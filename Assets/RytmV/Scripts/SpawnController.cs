@@ -52,7 +52,7 @@ public class SpawnController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (scaleBand <= AudioController._audioBand.Length)
+        if (scaleBand >= AudioController._audioBandBuffer.Length)
         {
             BeatScale();
         }
@@ -62,12 +62,9 @@ public class SpawnController : MonoBehaviour
     {
         foreach (GameObject i in noteSpawner)
         {
-            if (AudioController._audioBand[scaleBand] > 0)
-            {
-                i.transform.localScale = new Vector3(i.transform.localScale.x,
-                    (AudioController._audioBand[scaleBand] * scaleMult) + startScale,
-                    i.transform.localScale.z);
-            }
+            i.transform.localScale = new Vector3(i.transform.localScale.x,
+                (AudioController._audioBand[scaleBand] * scaleMult) + startScale,
+                i.transform.localScale.z);
         }
     }
 
